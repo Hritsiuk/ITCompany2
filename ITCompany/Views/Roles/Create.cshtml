@@ -1,0 +1,21 @@
+﻿@model string
+@{
+    ViewBag.Title = "Добавление роли";
+}
+<div class="container py-5">
+    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+    <div class="card mb-4" id="forms">
+        <div class="card-body">
+            <form asp-area="Admin" asp-controller="Roles" asp-action="Create" method="post">
+                <fieldset>
+                    <div asp-validation-summary="All"></div>
+                    <div class="form-group">
+                        <label for="name"></label>
+                        <input name="name" class="form-control" id="exampleInputName" type="text" placeholder="Введите название">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Добавить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

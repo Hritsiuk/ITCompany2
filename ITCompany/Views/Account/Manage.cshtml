@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
+    ViewData["Title"] = "Мой профиль";
+}
+@{
+    User user = await UserManager.FindByNameAsync(User.Identity.Name);
+    if (UserManager.IsInRoleAsync(user, "admin").Result)
+    {
+    <div>
+        <div class="row">
+            <h3>Управление пользователями</h3>
+        </div>
+            <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
+        <div class="row">
+            <h3>Управление ролями</h3>
+        </div>
+            <div class="row"><a asp-area="" asp-controller="Roles" asp-action="Index">Roles Manager</a></div>
+    </div>
+    }
+    else
+    {
+        <p>Hello @User.Identity.Name!</p>
+    }
+}

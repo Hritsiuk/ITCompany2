@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model ChangeRoleViewModel
+
+<div class="container py-5">
+    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+    <div class="card mb-4" id="forms">
+        <div class="card-header">Изменение ролей для пользователя @Model.UserEmail</div>
+        <div class="card-body">
+            <form asp-area="Admin" asp-controller="Roles" asp-action="Edit" method="post">
+                <fieldset>
+                    <div class="form-group">
+                        <input type="hidden" name="userId" value="@Model.UserId" />
+                        <div class="form-check form-group">
+                            @{ int i = 1; }
+                            @foreach (IdentityRole role in Model.AllRoles)
+                            {
+                                <input class="form-check-input" id="check-@i" type="checkbox" name="roles" value="@role.Name"
+                                       @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />
+                                <label class="form-check-label" for="check-@i">@role.Name</label><br />
+                                i++;
+                            }
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Сохранить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
