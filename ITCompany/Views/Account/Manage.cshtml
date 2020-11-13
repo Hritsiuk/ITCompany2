@@ -17,6 +17,10 @@
                 <h3>Управление ролями</h3>
             </div>
             <div class="row"><a asp-area="" asp-controller="Roles" asp-action="Index">Roles Manager</a></div>
+            <div class="row">
+                <h3>Управление событиями</h3>
+            </div>
+            <div class="row"><a asp-area="" asp-controller="Events" asp-action="Index">Events Manager</a></div>
         </div>
     }
     else if (UserManager.IsInRoleAsync(user, "moderator").Result)
@@ -25,6 +29,10 @@
             <h3>Управление сотрудниками</h3>
         </div>
         <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
+        <div class="row">
+            <h3>Управление событиями</h3>
+        </div>
+        <div class="row"><a asp-area="" asp-controller="Events" asp-action="Index">Events Manager</a></div>
     }
     else
     {

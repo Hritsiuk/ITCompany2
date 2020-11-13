@@ -21,22 +21,16 @@ namespace ITCompany.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             return View(roleManager.Roles.ToList());
         }
 
         public IActionResult Create()
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(string name)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             if (!string.IsNullOrEmpty(name))
             {
                 IdentityResult result = await roleManager.CreateAsync(new IdentityRole(name));
@@ -58,8 +52,6 @@ namespace ITCompany.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             IdentityRole role = await roleManager.FindByIdAsync(id);
             if (role != null)
             {
@@ -70,15 +62,11 @@ namespace ITCompany.Controllers
 
         public IActionResult UserList()
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             return View(userManager.Users.ToList());
         }
 
         public async Task<IActionResult> Edit(string userId)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             // получаем пользователя
             User user = await userManager.FindByIdAsync(userId);
             if (user != null)
@@ -95,14 +83,11 @@ namespace ITCompany.Controllers
                 };
                 return View(model);
             }
-
             return NotFound();
         }
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             // получаем пользователя
             User user = await userManager.FindByIdAsync(userId);
             if (user != null)

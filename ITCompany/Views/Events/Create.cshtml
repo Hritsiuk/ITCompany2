@@ -1,0 +1,43 @@
+﻿@model CreateEventViewModel
+
+<div class="container py-5">
+    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+    <div class="card mb-4" id="forms">
+        <div class="card-header">Добавление события</div>
+        <div class="card-body">
+            <form asp-area="" asp-controller="Events" asp-action="Create" method="post">
+                <fieldset>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" type="text" placeholder="Введите название">
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateStart">Начало события</label>
+                        <input asp-for="DateStart" type="date" value="@DateTime.Today.Date">
+                        <span asp-validation-for="DateStart"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateEnd">Конец события</label>
+                        <input asp-for="DateEnd" type="date" value="@DateTime.Today.Date">
+                        <span asp-validation-for="DateEnd"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Выберите участников</label>
+                        <div class="form-check form-group">
+                            @{ int i = 1; }
+                            @foreach (string name in Model.Users)
+                            {
+                                <input class="form-check-input" id="check-@i" type="checkbox" name="names" value="@name" />
+                                <label class="form-check-label" for="check-@i">@name</label><br />
+                                i++;
+                            }
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Сохранить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

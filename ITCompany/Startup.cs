@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ITCompany.Models;
+using ITCompany.Data.Repositories.Abstract;
+using ITCompany.Data.Repositories.EntityFramework;
 
 namespace ITCompany
 {
@@ -28,6 +30,10 @@ namespace ITCompany
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEventItemsRepository, EFEventItemsRepository>();
+            services.AddTransient<IEventsUsersRepository, EFEventsUsersRepository>();
+            services.AddTransient<DataManager>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
