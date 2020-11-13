@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ITCompany.Controllers
 {
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin,moderator")]
     public class UsersController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -20,26 +20,20 @@ namespace ITCompany.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             return View(userManager.Users.ToList());
         }
 
         public IActionResult Create()
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserViewModel model)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             if (ModelState.IsValid)
             {
-                User user = new User { UserName = model.UserName, Email = model.Email };
+                User user = new User { UserName = model.UserName, Position = model.Position, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -58,22 +52,18 @@ namespace ITCompany.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             User user = await userManager.FindByIdAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, UserName = user.UserName, Email = user.Email };
+            EditUserViewModel model = new EditUserViewModel { Id = user.Id, UserName = user.UserName, Position = user.Position, Email = user.Email };
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> Edit(EditUserViewModel model)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             if (ModelState.IsValid)
             {
                 User user = await userManager.FindByIdAsync(model.Id);
@@ -81,6 +71,7 @@ namespace ITCompany.Controllers
                 {
                     user.UserName = model.UserName;
                     user.Email = model.Email;
+                    user.Position = model.Position;
 
                     var result = await userManager.UpdateAsync(user);
                     if (result.Succeeded)
@@ -102,8 +93,6 @@ namespace ITCompany.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(string id)
         {
-            ViewBag.isAut = HttpContext.User.Identity.IsAuthenticated;
-            ViewBag.Name = HttpContext.User.Identity.Name;
             User user = await userManager.FindByIdAsync(id);
             if (user != null)
             {

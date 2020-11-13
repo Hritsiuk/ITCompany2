@@ -8,19 +8,27 @@
     User user = await UserManager.FindByNameAsync(User.Identity.Name);
     if (UserManager.IsInRoleAsync(user, "admin").Result)
     {
-    <div>
+        <div>
+            <div class="row">
+                <h3>Управление сотрудниками</h3>
+            </div>
+            <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
+            <div class="row">
+                <h3>Управление ролями</h3>
+            </div>
+            <div class="row"><a asp-area="" asp-controller="Roles" asp-action="Index">Roles Manager</a></div>
+        </div>
+    }
+    else if (UserManager.IsInRoleAsync(user, "moderator").Result)
+    {
         <div class="row">
             <h3>Управление сотрудниками</h3>
         </div>
-            <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
-        <div class="row">
-            <h3>Управление ролями</h3>
-        </div>
-            <div class="row"><a asp-area="" asp-controller="Roles" asp-action="Index">Roles Manager</a></div>
-    </div>
+        <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
     }
     else
     {
-        <p>Hello @User.Identity.Name!</p>
+        <p>Имя: @user.UserName</p>
+        <p>Должность: @user.Position</p>
     }
 }
