@@ -30,10 +30,7 @@ namespace ITCompany.Data.Repositories.EntityFramework
 
         public void SaveEventItem(EventItem entity)
         {
-            if (entity.Id == default)
-                context.Entry(entity).State = EntityState.Added;// объект будет добавлен как новый
-            else
-                context.Entry(entity).State = EntityState.Modified;// старый объект будет изменён
+            context.Entry(entity).State = EntityState.Added;// объект будет добавлен как новый
             context.SaveChanges();
         }
 

@@ -36,10 +36,8 @@ namespace ITCompany.Controllers
             foreach (User user in users)
                 userNames.Add(user.UserName);
 
-            Guid guid = Guid.NewGuid();
             CreateEventViewModel model = new CreateEventViewModel
             {
-                Id = guid,
                 Users = userNames
             };
             return View(model);
@@ -50,11 +48,14 @@ namespace ITCompany.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid guid = Guid.NewGuid();
+                model.Id = guid;
                 dataManager.EventItems.SaveEventItem(new EventItem { Id = model.Id, Name = model.Name, DateStart = model.DateStart, DateEnd = model.DateEnd });
                 foreach(string name in names)
                 {
                     User user = await userManager.FindByNameAsync(name);
-                    dataManager.EventsUsers.SaveEventsUsers(new EventUser { Id = Guid.NewGuid(), EventId = model.Id, UserId = user.Id });
+                    EventUser eventUser = new EventUser { Id = Guid.NewGuid(), EventId = model.Id, UserId = user.Id };
+                    dataManager.EventsUsers.SaveEventsUsers(eventUser);
                 }
                 return RedirectToAction("Index");
             }
@@ -65,6 +66,7 @@ namespace ITCompany.Controllers
         public IActionResult Delete(string id)
         {
             dataManager.EventItems.DeleteEventItem(id);
+            dataManager.EventsUsers.DeleteEventsUsersByEventGuid(id.ToUpper());
             return RedirectToAction("Index");
         }
     }

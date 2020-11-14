@@ -28,8 +28,11 @@ namespace ITCompany.Data.Repositories.EntityFramework
 
         public void DeleteEventsUsersByEventGuid(string id)
         {
-            context.RemoveRange(context.EventsUsers.Where(c => c.EventId == Guid.Parse(id)));
-            context.SaveChanges();
+            //Guid eventId = Guid.Parse(id);
+            //context.Database.ExecuteSqlCommand("DELETE FROM EventsUsers WHERE EventId = {0}", id);
+            context.Database.ExecuteSqlInterpolated($"DELETE FROM EventsUsers WHERE EventId = {id}");
+            //context.EventsUsers.RemoveRange(context.EventsUsers.Where(c => c.EventId == eventId));
+            //context.SaveChanges();
         }
     }
 }
