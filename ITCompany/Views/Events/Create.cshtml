@@ -3,7 +3,9 @@
 <div class="container py-5">
     <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
     <div class="card mb-4" id="forms">
-        <div class="card-header">Добавление события</div>
+        </br>
+        <h3 class="section-title">Добавление события</h3>
+        </br>
         <div class="card-body">
             <form asp-area="" asp-controller="Events" asp-action="Create" method="post">
                 <fieldset>
@@ -28,13 +30,14 @@
                             @{ int i = 1; }
                             @foreach (string name in Model.Users)
                             {
+                                <label class="form-check-label" for="check-@i">@name </label><br />
                                 <input class="form-check-input" id="check-@i" type="checkbox" name="names" value="@name" />
-                                <label class="form-check-label" for="check-@i">@name</label><br />
+
                                 i++;
                             }
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Сохранить</button>
+                    <button class="btn btn-submit bm5" type="submit">Сохранить</button>
                 </fieldset>
             </form>
         </div>

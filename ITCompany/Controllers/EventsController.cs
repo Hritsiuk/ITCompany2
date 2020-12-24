@@ -16,20 +16,33 @@ namespace ITCompany.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly DataManager dataManager;
+        public static CurrentUModel Cr;
 
         public EventsController(UserManager<User> _userManager, DataManager manager)
         {
+            if (HomeController.Cr != null)
+                Cr = HomeController.Cr;
+            if (AccountController.Cr != null)
+                Cr = AccountController.Cr;
+            if (RolesController.Cr != null)
+                Cr = RolesController.Cr;
+            if (UsersController.Cr != null)
+                Cr = UsersController.Cr;
             userManager = _userManager;
             dataManager = manager;
         }
 
         public IActionResult Index()
         {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
             return View(dataManager.EventItems.GetEventItems());
         }
 
         public IActionResult Create()
         {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
             var users = userManager.Users.ToList();
             List<string> userNames = new List<string>();
 
@@ -48,6 +61,7 @@ namespace ITCompany.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 Guid guid = Guid.NewGuid();
                 model.Id = guid;
                 dataManager.EventItems.SaveEventItem(new EventItem { Id = model.Id, Name = model.Name, DateStart = model.DateStart, DateEnd = model.DateEnd });

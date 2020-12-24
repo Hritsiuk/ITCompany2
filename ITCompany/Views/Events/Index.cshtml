@@ -5,10 +5,11 @@
 }
 
 <div class="container py-5">
-    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
-    <br />
-    <div class="card mb-4" id="tables">
-        <div class="card-header">Список событий</div>
+    
+    <div class="card mb-4 box" id="tables">
+        <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+        <br />
+        <h3 class="section-title">Список событий</h3>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -21,10 +22,10 @@
                     @foreach (EventItem eventItem in Model)
                     {
                         <tr>
-                            <td>@eventItem.Name</td>
+                            <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.Name</di></td>
                             <td>
                                 <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
-                                    <button type="submit" class="btn btn-sm btn-danger">
+                                    <button type="submit" class="btn btn-red btn-danger">
                                         <strong>Удалить</strong>
                                     </button>
                                 </form>
@@ -34,6 +35,7 @@
                 </tbody>
             </table>
         </div>
+        <a asp-action="Create"><strong>Создать событие</strong></a>
     </div>
-    <a asp-action="Create"><strong>Создать событие</strong></a>
+  
 </div>

@@ -2,7 +2,280 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <div class="container">
+            <section id="portfolio" class="portfolio">
+                <div class="box">
+                    <h2 class="section-title pull-left">From My Portfolio</h2>
+                    <div id="filters-container" class="cbp-l-filters-alignRight pull-right">
+                        <div data-filter="*" class="cbp-filter-item-custom-active cbp-filter-item-custom btn">All</div>
+                        <div data-filter=".architecture" class="cbp-filter-item-custom btn">Architecture</div>
+                        <div data-filter=".macro" class="cbp-filter-item-custom btn">Macro</div>
+                        <div data-filter=".portrait" class="cbp-filter-item-custom btn">Portrait</div>
+                        <div data-filter=".still-life" class="cbp-filter-item-custom btn">Still Life</div>
+                    </div>
+                    <!-- /#filters-container -->
+                    <div class="clearfix"></div>
+                    <div id="grid-container" class="cbp-l-grid-masonry">
+                        <ul>
+                            <li class="cbp-item frame architecture">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post1.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/pa1.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Thumbnail Slider</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame macro">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post2.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/pm1.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Fullscreen Gallery</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame portrait">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post3.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/pp1.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Multiple Images</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame still-life">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post4.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/ps1.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Fullwidth Video</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame architecture">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post1.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/pa2.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Thumbnail Slider</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame macro">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post2.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/pm2.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Fullscreen Gallery</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame portrait">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post3.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/pp2.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Multiple Images</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="cbp-item frame still-life">
+                                <a class="cbp-caption cbp-singlePage" href="ajax/post4.html">
+                                    <div class="cbp-caption-defaultWrap"> <img src="~/images/art/ps2.jpg" alt=""> </div>
+                                    <div class="cbp-caption-activeWrap">
+                                        <div class="cbp-l-caption-alignCenter">
+                                            <div class="cbp-l-caption-body">
+                                                <div class="cbp-l-caption-title">Fullwidth Video</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.cbp-l-grid-masonry -->
+                   
+                </div>
+                <!-- /.box -->
+            </section>
+            <!-- /#portfolio -->
+
+            <section id="about">
+                <div class="box">
+                    <h2 class="section-title">Who is Behind All This</h2>
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-7 col-sm-12">
+                            <figure class="frame"><img src="~/images/art/about.jpg" alt="" /></figure>
+                        </div>
+                        <!-- /column -->
+                        <div class="col-md-7 col-md-pull-5 col-sm-12">
+                            <p class="lead">Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna. </p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus. </p>
+                            <p>Tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                            <p>Fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla.</p>
+                        </div>
+                        <!-- /column -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="clearfix"></div>
+                    <div class="divide40"></div>
+                    <h2 class="section-title">My Services</h2>
+                    <div class="divide10"></div>
+                    <div class="services-1">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="icon"> <i class="budicon-heart icn"></i> </div>
+                                <!-- /.icon -->
+                                <div class="text">
+                                    <h5>Wedding Photography</h5>
+                                    <p>Nulla vitae libero, a pharetra augue. Integer posuere a ante venenatis condimentum. Donec id elit non mi.</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="icon"> <i class="budicon-gender-female icn"></i> </div>
+                                <!-- /.icon -->
+                                <div class="text">
+                                    <h5>Birth Photography</h5>
+                                    <p>Vestibulum id ligula porta euismod semper. Aenean lacinia bibendum vestibulum. Cum sociis natoque.</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="icon"> <i class="budicon-meal icn"></i> </div>
+                                <!-- /.icon -->
+                                <div class="text">
+                                    <h5>Food Photography</h5>
+                                    <p>Aenean eu leo quam. Pellente ornare sem lacinia quam venenatis vestibulum sagittis montes, nascetur ridiculus mus.</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /column -->
+                            <div class="divide30"></div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="icon"> <i class="budicon-bag icn"></i> </div>
+                                <!-- /.icon -->
+                                <div class="text">
+                                    <h5>Fashion Photography</h5>
+                                    <p>Fusce dapibus commodo, tortor mauris condimentum nibh, ut fermentum massa. Maecenas sed diam eget risus.</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="icon"> <i class="budicon-diamond icn"></i> </div>
+                                <!-- /.icon -->
+                                <div class="text">
+                                    <h5>Jewelery Photography</h5>
+                                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis sit amet non magna sit amet.</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /column -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="icon"> <i class="budicon-cocktail icn"></i> </div>
+                                <!-- /.icon -->
+                                <div class="text">
+                                    <h5>Drink Photography</h5>
+                                    <p>Morbi leo risus, porta ac consectetur ac at eros. Cras mattis consectetur purus. Cras mattis consectetur purus.</p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /column -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.services -->
+
+                </div>
+                <!-- /.box -->
+            </section>
+            <!-- /#about -->
+
+            <section id="contact">
+                <div class="box">
+                    <h2 class="section-title">Get in Touch with Me</h2>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <div class="divide20"></div>
+                    <div class="row text-center services-2">
+                        <div class="col-md-3 col-sm-6">
+                            <i class="budicon-map"></i>
+                            <p>
+                                Moon Street Light Avenue <br />
+                                14/05 Jupiter, JP 80630
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <i class="budicon-telephone"></i>
+                            <p>
+                                00 (123) 456 78 90 <br />
+                                00 (987) 654 32 10
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <i class="budicon-mobile"></i>
+                            <p>
+                                00 (123) 456 78 90 <br />
+                                00 (987) 654 32 10
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <i class="budicon-mail"></i>
+                            <p>
+                                <a class="nocolor" href="mailto:#">manager@email.com</a> <br />
+                                <a class="nocolor" href="mailto:#">asistant@email.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /.services-2 -->
+                   
+                    <!-- /.form-container -->
+
+                </div>
+                <!-- /.box -->
+            </section>
+            <!-- /#contact -->
+
+            <footer class="footer box">
+                <p class="pull-left">© 2015 Lumos. All rights reserved. Theme by <a href="http://elemisfreebies.com">elemis</a>.</p>
+                <ul class="social pull-right">
+                    <li><a href="#"><i class="icon-s-rss"></i></a></li>
+                    <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
+                    <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+                    <li><a href="#"><i class="icon-s-instagram"></i></a></li>
+                    <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer -->
+
+        </div>
+        <!-- /.container -->
+
+   

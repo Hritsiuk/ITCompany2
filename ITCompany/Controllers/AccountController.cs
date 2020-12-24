@@ -13,11 +13,21 @@ namespace ITCompany.Controllers
     public class AccountController : Controller
     {
         //переменные для оперирования пользователями
+        public static CurrentUModel Cr;
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
 
         public AccountController(UserManager<User> userMgr, SignInManager<User> signInMgr)
         {
+            Cr = new CurrentUModel();
+            if (HomeController.Cr != null)
+                Cr = HomeController.Cr;
+            if (EventsController.Cr != null)
+                Cr = EventsController.Cr;
+            if (RolesController.Cr != null)
+                Cr = RolesController.Cr;
+            if (UsersController.Cr != null)
+                Cr = UsersController.Cr;
             userManager = userMgr;
             signInManager = signInMgr;
         }
@@ -42,11 +52,16 @@ namespace ITCompany.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
                     {
+                        Cr.name = user.UserName;
+                        Cr.position = user.Position;
+                        Cr.time = DateTime.Now;
+                        Cr.hour = Cr.hour - DateTime.Now.Hour;
                         return Redirect(returnUrl ?? "/");
                     }
                 }
                 ModelState.AddModelError(nameof(LoginViewModel.UserName), "Неверный логин или пароль");
             }
+            
             return View(model);
         }
 
@@ -83,12 +98,29 @@ namespace ITCompany.Controllers
         [Authorize]
         public async Task<IActionResult> Logout()
         {
+            Cr = null;
+            HomeController.Cr = null;
+            EventsController.Cr = null;
+            RolesController.Cr = null;
+            UsersController.Cr = null;
             await signInManager.SignOutAsync();
+            
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         public IActionResult Manage()
         {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
+            return View();
+        }
+        [Authorize]
+
+        public IActionResult Mypage()
+        {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
             return View();
         }
     }

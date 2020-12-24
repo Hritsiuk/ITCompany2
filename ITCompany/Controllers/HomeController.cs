@@ -10,16 +10,30 @@ using ITCompany.Models;
 namespace ITCompany.Controllers
 {
     public class HomeController : Controller
-    {
+    {   
         private readonly ILogger<HomeController> _logger;
+        public static CurrentUModel Cr;
 
+        private CurrentUModel uCurrent;
+        private CurrentUModel Users;
         public HomeController(ILogger<HomeController> logger)
         {
+            if (AccountController.Cr != null)
+            Cr = AccountController.Cr;
+            if (EventsController.Cr != null)
+                Cr = EventsController.Cr;
+            if (RolesController.Cr != null)
+                Cr = RolesController.Cr;
+            if (UsersController.Cr != null)
+                Cr = UsersController.Cr;
+
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            if(Cr!=null)
+            ViewBag.name = Cr.name+"("+Cr.position+")";
             return View();
         }
 

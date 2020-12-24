@@ -4,10 +4,11 @@
 }
 
 <div class="container py-5">
-    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
-    <br />
-    <div class="card mb-4" id="tables">
-        <div class="card-header">Список сотрудников</div>
+   
+    <div class="card mb-4 box" id="tables">
+        <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+        <br />
+        <h3 class="section-title">Список сотрудников</h3>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
@@ -25,8 +26,8 @@
                             <td>@user.Email</td>
                             <td>
                                 <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id"><strong>Изменить</strong></a>
-                                    <button type="submit" class="btn btn-sm btn-danger">
+                                    <a class="btn btn-gray btn-primary" asp-action="Edit" asp-route-id="@user.Id"><strong>Изменить</strong></a>
+                                    <button type="submit" class="btn btn-red btn-danger">
                                         <strong>Удалить</strong>
                                     </button>
                                 </form>
@@ -36,6 +37,7 @@
                 </tbody>
             </table>
         </div>
+        <a asp-action="Create"><strong>Добавить сотрудника</strong></a>
     </div>
-    <a asp-action="Create"><strong>Добавить сотрудника</strong></a>
+   
 </div>

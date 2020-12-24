@@ -20,9 +20,11 @@ namespace ITCompany
 {
     public class Startup
     {
+       
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+             
         }
 
         public IConfiguration Configuration { get; }
@@ -33,7 +35,7 @@ namespace ITCompany
             services.AddTransient<IEventItemsRepository, EFEventItemsRepository>();
             services.AddTransient<IEventsUsersRepository, EFEventsUsersRepository>();
             services.AddTransient<DataManager>();
-
+            services.AddTransient<CurrentUModel>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

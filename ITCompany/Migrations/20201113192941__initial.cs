@@ -76,6 +76,7 @@ namespace ITCompany.Migrations
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
+                    
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
@@ -91,7 +92,7 @@ namespace ITCompany.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
+                }) ;
 
             migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",

@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
 
 <div class="container py-5">
-    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
-    <div class="card mb-4" id="tables">
-        <div class="card-header">Список ролей</div>
+   
+    <div class="card mb-4 box" id="tables">
+        <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+        <h3 class="section-title">Список ролей</h3>
         <div class="card-body">
             <table class="table table-hover">
                 <tbody>
                     @foreach (var role in Model)
                     {
                         <tr>
-                            <td>@role.Name</td>
+                            <td><h4>@role.Name</h4></td>
                             <td>
                                 <form asp-area="Admin" asp-action="Delete" asp-route-id="@role.Id" method="post">
-                                    <button type="submit" class="btn btn-sm btn-danger">
+                                    <button type="submit" class="btn btn-red btn-danger">
                                         Удалить
                                     </button>
                                 </form>

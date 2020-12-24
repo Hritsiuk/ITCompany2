@@ -14,18 +14,31 @@ namespace ITCompany.Controllers
     {
         RoleManager<IdentityRole> roleManager;
         UserManager<User> userManager;
+        public static CurrentUModel Cr;
         public RolesController(RoleManager<IdentityRole> _roleManager, UserManager<User> _userManager)
         {
+            if (AccountController.Cr != null)
+                Cr = AccountController.Cr;
+            if (EventsController.Cr != null)
+                Cr = EventsController.Cr;
+            if (HomeController.Cr != null)
+                Cr = HomeController.Cr;
+            if (UsersController.Cr != null)
+                Cr = UsersController.Cr;
             roleManager = _roleManager;
             userManager = _userManager;
         }
         public IActionResult Index()
         {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
             return View(roleManager.Roles.ToList());
         }
 
         public IActionResult Create()
         {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
             return View();
         }
         [HttpPost]
@@ -62,12 +75,17 @@ namespace ITCompany.Controllers
 
         public IActionResult UserList()
         {
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
             return View(userManager.Users.ToList());
         }
 
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
+            if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";
+
             User user = await userManager.FindByIdAsync(userId);
             if (user != null)
             {
