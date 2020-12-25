@@ -2,6 +2,7 @@
 @{
     string strTitle = "Event Manager";
     ViewBag.Title = strTitle;
+    Dictionary<Guid, int> eventCount = ViewBag.EventCount;
 }
 
 <div class="container py-5">
@@ -15,22 +16,27 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th></th>
+                        <th>Начало события</th>
+                        <th>Конец</th>
+                        @*<th>Количество участников</th>*@
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (EventItem eventItem in Model)
                     {
-                        <tr>
-                            <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.Name</di></td>
-                            <td>
-                                <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
-                                    <button type="submit" class="btn btn-red btn-danger">
-                                        <strong>Удалить</strong>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.Name</di></td>
+                        <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.DateStart.ToShortDateString()</di></td>
+                        <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.DateEnd.ToShortDateString()</di></td>
+                        @*<td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventCount[eventItem.Id]</di></td>*@
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
+                                <button type="submit" class="btn btn-red btn-danger">
+                                    <strong>Удалить</strong>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

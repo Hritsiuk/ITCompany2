@@ -26,6 +26,32 @@ namespace ITCompany.Controllers
 
         public IActionResult Index()
         {
+            /*var data = dataManager.EventsUsers.GetEventsUsers();
+            Dictionary<Guid, int> keyValues = new Dictionary<Guid, int>();
+            int count = 0;
+            foreach (EventUser eventUser in data)
+            {
+                if (count == 0)
+                {
+                    keyValues.Add(eventUser.EventId, 1);
+                }
+                else
+                {
+                    bool isFind = false;
+                    for (int i = 0; i < keyValues.Count; i++)
+                    {
+                        if (keyValues.ContainsKey(eventUser.EventId))
+                        {
+                            keyValues[eventUser.EventId] += keyValues[eventUser.EventId];
+                            isFind = true;
+                        }
+                    }
+                    if (isFind == false)
+                        keyValues.Add(eventUser.EventId, 1);
+                }
+                
+            }
+            ViewBag.EventCount = keyValues;*/
             return View(dataManager.EventItems.GetEventItems());
         }
 
