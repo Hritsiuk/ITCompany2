@@ -126,5 +126,7 @@ namespace ITCompany.Controllers
             ViewBag.HoursAllMonth = Math.Round(dataManager.UsersInformation.GetUserInformationByIdAllMonth(Guid.Parse(user.Id)), 1);
             return View();
         }
+
+
     }
 }

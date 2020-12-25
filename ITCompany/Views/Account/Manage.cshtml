@@ -5,15 +5,16 @@
     ViewData["Title"] = "Мой профиль";
 }
 @{
-    
-    User  user = await UserManager.FindByNameAsync(User.Identity.Name);
-    
-    if ( UserManager.IsInRoleAsync(user, "admin").Result)
+
+    User user = await UserManager.FindByNameAsync(User.Identity.Name);
+
+    if (UserManager.IsInRoleAsync(user, "admin").Result)
     {
-        <div>
-            <section class="box">
+   
+        <section class="box">
+          
                 <div class="row">
-                    <h3>Управление сотрудниками</h3>
+                    <h3 >Управление сотрудниками</h3>
                 </div>
                 <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
                 <div class="row">
@@ -24,28 +25,31 @@
                     <h3>Управление событиями</h3>
                 </div>
                 <div class="row"><a asp-area="" asp-controller="Events" asp-action="Index">Events Manager</a></div>
-            </section>
+
+            
+        </section>
+     
+    }
+    else if (UserManager.IsInRoleAsync(user, "moderator").Result)
+    {
+    <section class="box">
+        <div class="row">
+            <h3>Управление сотрудниками</h3>
         </div>
+        <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
+        <div class="row">
+            <h3>Управление событиями</h3>
+        </div>
+        <div class="row"><a asp-area="" asp-controller="Events" asp-action="Index">Events Manager</a></div>
+    </section>
     }
-    else if ( UserManager.IsInRoleAsync(user, "moderator").Result)
+    else
     {
-        <section class="box">
-            <div class="row">
-                <h3>Управление сотрудниками</h3>
-            </div>
-            <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
-            <div class="row">
-                <h3>Управление событиями</h3>
-            </div>
-            <div class="row"><a asp-area="" asp-controller="Events" asp-action="Index">Events Manager</a></div>
-        </section>
+    <section class="box">
+        <p>Имя: @user.UserName</p>
+        <p>Должность: @user.Position</p>
+    </section>
     }
-    else 
-    {
-        <section class="box">
-            <p>Имя: @user.UserName</p>
-            <p>Должность: @user.Position</p>
-        </section>
+
     }
-    
-}
+
