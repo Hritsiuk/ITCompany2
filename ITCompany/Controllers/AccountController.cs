@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ITCompany.Data;
+using ITCompany.Data.Entities;
 using ITCompany.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,10 +18,11 @@ namespace ITCompany.Controllers
         public static CurrentUModel Cr;
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly DataManager dataManager;
 
-        public AccountController(UserManager<User> userMgr, SignInManager<User> signInMgr)
+        public AccountController(UserManager<User> userMgr, SignInManager<User> signInMgr, DataManager data)
         {
-            Cr = new CurrentUModel();
+            /*Cr = new CurrentUModel();
             if (HomeController.Cr != null)
                 Cr = HomeController.Cr;
             if (EventsController.Cr != null)
@@ -27,9 +30,10 @@ namespace ITCompany.Controllers
             if (RolesController.Cr != null)
                 Cr = RolesController.Cr;
             if (UsersController.Cr != null)
-                Cr = UsersController.Cr;
+                Cr = UsersController.Cr;*/
             userManager = userMgr;
             signInManager = signInMgr;
+            dataManager = data;
         }
 
         [AllowAnonymous]
@@ -52,10 +56,11 @@ namespace ITCompany.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
                     {
-                        Cr.name = user.UserName;
+                        /*Cr.name = user.UserName;
                         Cr.position = user.Position;
                         Cr.time = DateTime.Now;
-                        Cr.hour = Cr.hour - DateTime.Now.Hour;
+                        Cr.hour = Cr.hour - DateTime.Now.Hour;*/
+                        HttpContext.Response.Cookies.Append("date", DateTime.Now.ToString());
                         return Redirect(returnUrl ?? "/");
                     }
                 }
@@ -98,11 +103,27 @@ namespace ITCompany.Controllers
         [Authorize]
         public async Task<IActionResult> Logout()
         {
-            Cr = null;
+            
+            /*Cr = null;
             HomeController.Cr = null;
             EventsController.Cr = null;
             RolesController.Cr = null;
-            UsersController.Cr = null;
+            UsersController.Cr = null;*/
+            string date;
+            HttpContext.Request.Cookies.TryGetValue("date", out date);
+            if (date != null)
+            {
+                TimeSpan span = DateTime.Now - DateTime.Parse(date);
+                User user = userManager.GetUserAsync(HttpContext.User).Result;
+                UserInformation inf = new UserInformation
+                {
+                    Id = Guid.NewGuid(),
+                    Id_user = Guid.Parse(user.Id),
+                    Date = DateTime.Now,
+                    Hours = Math.Round(span.TotalSeconds, 1)/**/
+                };
+                dataManager.UsersInformation.SaveUserInformation(inf);
+            }
             await signInManager.SignOutAsync();
             
             return RedirectToAction("Index", "Home");
@@ -111,16 +132,16 @@ namespace ITCompany.Controllers
         [Authorize]
         public IActionResult Manage()
         {
-            if (Cr != null)
-                ViewBag.name = Cr.name + "(" + Cr.position + ")";
+            /*if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
             return View();
         }
-        [Authorize]
 
+        [Authorize]
         public IActionResult Mypage()
         {
-            if (Cr != null)
-                ViewBag.name = Cr.name + "(" + Cr.position + ")";
+            /*if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
             return View();
         }
     }

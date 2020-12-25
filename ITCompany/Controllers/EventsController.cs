@@ -20,29 +20,29 @@ namespace ITCompany.Controllers
 
         public EventsController(UserManager<User> _userManager, DataManager manager)
         {
-            if (HomeController.Cr != null)
+            /*if (HomeController.Cr != null)
                 Cr = HomeController.Cr;
             if (AccountController.Cr != null)
                 Cr = AccountController.Cr;
             if (RolesController.Cr != null)
                 Cr = RolesController.Cr;
             if (UsersController.Cr != null)
-                Cr = UsersController.Cr;
+                Cr = UsersController.Cr;*/
             userManager = _userManager;
             dataManager = manager;
         }
 
         public IActionResult Index()
         {
-            if (Cr != null)
-                ViewBag.name = Cr.name + "(" + Cr.position + ")";
+            /*if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
             return View(dataManager.EventItems.GetEventItems());
         }
 
         public IActionResult Create()
         {
-            if (Cr != null)
-                ViewBag.name = Cr.name + "(" + Cr.position + ")";
+            /*if (Cr != null)
+                ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
             var users = userManager.Users.ToList();
             List<string> userNames = new List<string>();
 

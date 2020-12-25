@@ -10,11 +10,14 @@ namespace ITCompany.Data
     {
         public IEventItemsRepository EventItems { get; set; }
         public IEventsUsersRepository EventsUsers { get; set; }
+        public IUsersInformationRepository UsersInformation { get; set; }
 
-        public DataManager(IEventItemsRepository eventItemsRepository, IEventsUsersRepository eventsUsersRepository)
+        public DataManager(IEventItemsRepository eventItemsRepository, IEventsUsersRepository eventsUsersRepository, 
+            IUsersInformationRepository usersInformationRepository)
         {
             EventItems = eventItemsRepository;
             EventsUsers = eventsUsersRepository;
+            UsersInformation = usersInformationRepository;
         }
     }
 }

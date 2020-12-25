@@ -34,6 +34,7 @@ namespace ITCompany
         {
             services.AddTransient<IEventItemsRepository, EFEventItemsRepository>();
             services.AddTransient<IEventsUsersRepository, EFEventsUsersRepository>();
+            services.AddTransient<IUsersInformationRepository, EFUsersInformationRepository>();
             services.AddTransient<DataManager>();
             services.AddTransient<CurrentUModel>();
             services.AddDbContext<ApplicationDbContext>(options =>

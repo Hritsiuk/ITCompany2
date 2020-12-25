@@ -12,6 +12,7 @@ namespace ITCompany.Data
     {
         public DbSet<EventItem> EventItems { get; set; }
         public DbSet<EventUser> EventsUsers { get; set; }
+        public DbSet<UserInformation> UsersInformation { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

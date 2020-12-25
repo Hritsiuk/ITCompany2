@@ -51,7 +51,7 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                            @{ if (@ViewBag.name == null)
+                            @{ if (@User.Identity.Name == null)
                                 {
                                     <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
                                     <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
@@ -60,7 +60,7 @@
                                 {
                                     <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
 
-                                    <li><a asp-area="" asp-controller="Account" asp-action="Mypage">@ViewBag.name </a></li>
+                                    <li><a asp-area="" asp-controller="Account" asp-action="Mypage">@User.Identity.Name</a></li>
                                     <li><a asp-area="" asp-controller="Account" asp-action="Manage">Manage</a></li>
 
                                 }
