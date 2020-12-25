@@ -10,7 +10,7 @@
                     <div class="col-12 col-lg-5 col-xl-4">
 
                         <div class="box box-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
-                            <div class="flexbox px-20 pt-20">
+                            @*<div class="flexbox px-20 pt-20">
                                 <label class="toggler toggler-danger text-white">
                                     <input type="checkbox">
                                     <i class="fa fa-heart"></i>
@@ -25,7 +25,7 @@
                                         <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Block</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
 
                             <div class="box-body text-center pb-50">
 
@@ -35,17 +35,17 @@
 
                             <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                                 <li>
-                                    <span class="opacity-60">Followers</span><br>
-                                    <span class="font-size-20">8.6K</span>
+                                    <span class="opacity-60">Number of hours in this month</span><br>
+                                    <span class="font-size-20">@ViewBag.HoursThisMonth</span>
                                 </li>
                                 <li>
-                                    <span class="opacity-60">Following</span><br>
-                                    <span class="font-size-20">8457</span>
+                                    <span class="opacity-60">All hours</span><br>
+                                    <span class="font-size-20">@ViewBag.HoursAllMonth</span>
                                 </li>
-                                <li>
+                                @*<li>
                                     <span class="opacity-60">Tweets</span><br>
                                     <span class="font-size-20">2154</span>
-                                </li>
+                                </li>*@
                             </ul>
                         </div>
 
