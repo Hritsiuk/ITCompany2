@@ -144,6 +144,7 @@ namespace ITCompany.Controllers
             /*if (Cr != null)
                 ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
             User user = userManager.GetUserAsync(HttpContext.User).Result;
+            ViewBag.Position = user.Position;
             ViewBag.HoursThisMonth = Math.Round(dataManager.UsersInformation.GetUserInformationByIdAndMonth(Guid.Parse(user.Id), DateTime.Now), 1);
             ViewBag.HoursAllMonth = Math.Round(dataManager.UsersInformation.GetUserInformationByIdAllMonth(Guid.Parse(user.Id)), 1);
             return View();
