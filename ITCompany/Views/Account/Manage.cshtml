@@ -6,7 +6,7 @@
 }
 @{
     
-      User  user = await UserManager.FindByNameAsync(User.Identity.Name);
+    User  user = await UserManager.FindByNameAsync(User.Identity.Name);
     
     if ( UserManager.IsInRoleAsync(user, "admin").Result)
     {
