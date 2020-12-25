@@ -19,8 +19,20 @@ namespace ITCompany.Data.Repositories.EntityFramework
 
         public double GetUserInformationByIdAndMonth(Guid id, DateTime date)
         {
-            IEnumerable<UserInformation> Users = from i in context.UsersInformation
-                                                 where i.Id_user == id && i.Date.ToString("MM/yyyy") == date.ToString("MM/yyyy")
+            IQueryable<UserInformation> Users = from i in context.UsersInformation
+                                                 where i.Id_user == id && i.Date.Year == date.Year && i.Date.Month == date.Month
+                                                 select i;
+            double hours = 0;
+            foreach (UserInformation user in Users)
+                hours += user.Hours;
+
+            return hours;
+        }
+
+        public double GetUserInformationByIdAllMonth(Guid id)
+        {
+            IQueryable<UserInformation> Users = from i in context.UsersInformation
+                                                 where i.Id_user == id
                                                  select i;
             double hours = 0;
             foreach (UserInformation user in Users)

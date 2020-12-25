@@ -134,6 +134,7 @@ namespace ITCompany.Controllers
         {
             /*if (Cr != null)
                 ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
+
             return View();
         }
 
@@ -142,6 +143,9 @@ namespace ITCompany.Controllers
         {
             /*if (Cr != null)
                 ViewBag.name = Cr.name + "(" + Cr.position + ")";*/
+            User user = userManager.GetUserAsync(HttpContext.User).Result;
+            ViewBag.HoursThisMonth = dataManager.UsersInformation.GetUserInformationByIdAndMonth(Guid.Parse(user.Id), DateTime.Now);
+            ViewBag.HoursAllMonth = dataManager.UsersInformation.GetUserInformationByIdAllMonth(Guid.Parse(user.Id));
             return View();
         }
     }
