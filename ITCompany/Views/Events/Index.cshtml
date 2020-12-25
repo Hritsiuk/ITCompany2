@@ -8,7 +8,12 @@
 <div class="container py-5">
 
     <div class="card mb-4 box" id="tables">
-        <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+        
+        <a asp-area="" asp-controller="Account" asp-action="Manage">
+            <button type="button" class="btn border-black">
+                <strong>Вернуться на панель администратора</strong>
+            </button>
+        </a>
         <br />
         <h3 class="section-title">Список событий</h3>
         <div class="card-body">
@@ -42,7 +47,11 @@
                 </div>
                 <!-- /column -->
             </div>
-            <a asp-action="Create"><strong>Создать событие</strong></a>
+            <a asp-controller="Events" asp-action="Create">
+                <button type="button" class="btn border-black">
+                    <strong>Создать событие</strong>
+                </button>
+            </a>
         </div>
     </div>
 
