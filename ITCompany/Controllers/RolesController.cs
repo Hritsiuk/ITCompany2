@@ -17,19 +17,16 @@ namespace ITCompany.Controllers
         
         public RolesController(RoleManager<IdentityRole> _roleManager, UserManager<User> _userManager)
         {
-            
             roleManager = _roleManager;
             userManager = _userManager;
         }
         public IActionResult Index()
         {
-            
             return View(roleManager.Roles.ToList());
         }
 
         public IActionResult Create()
         {
-           
             return View();
         }
         [HttpPost]
@@ -66,15 +63,12 @@ namespace ITCompany.Controllers
 
         public IActionResult UserList()
         {
-            
             return View(userManager.Users.ToList());
         }
 
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
-            
-
             User user = await userManager.FindByIdAsync(userId);
             if (user != null)
             {

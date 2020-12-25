@@ -20,20 +20,17 @@ namespace ITCompany.Controllers
 
         public EventsController(UserManager<User> _userManager, DataManager manager)
         {
-          
             userManager = _userManager;
             dataManager = manager;
         }
 
         public IActionResult Index()
         {
-            
             return View(dataManager.EventItems.GetEventItems());
         }
 
         public IActionResult Create()
         {
-             
             var users = userManager.Users.ToList();
             List<string> userNames = new List<string>();
 

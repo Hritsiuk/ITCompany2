@@ -22,7 +22,6 @@ namespace ITCompany.Controllers
 
         public AccountController(UserManager<User> userMgr, SignInManager<User> signInMgr, DataManager data)
         {
-            
             userManager = userMgr;
             signInManager = signInMgr;
             dataManager = data;
@@ -92,8 +91,6 @@ namespace ITCompany.Controllers
         [Authorize]
         public async Task<IActionResult> Logout()
         {
-            
-             
             string date;
             HttpContext.Request.Cookies.TryGetValue("date", out date);
             if (date != null)
@@ -117,15 +114,12 @@ namespace ITCompany.Controllers
         [Authorize]
         public IActionResult Manage()
         {
-      
-
             return View();
         }
 
         [Authorize]
         public IActionResult Mypage()
         {
-            
             User user = userManager.GetUserAsync(HttpContext.User).Result;
             ViewBag.Position = user.Position;
             ViewBag.HoursThisMonth = Math.Round(dataManager.UsersInformation.GetUserInformationByIdAndMonth(Guid.Parse(user.Id), DateTime.Now), 1);

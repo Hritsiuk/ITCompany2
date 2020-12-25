@@ -16,27 +16,22 @@ namespace ITCompany.Controllers
         
         public UsersController(UserManager<User> _userManager)
         {
-      
-
             userManager = _userManager;
         }
 
         public IActionResult Index()
         {
-          
             return View(userManager.Users.ToList());
         }
 
         public IActionResult Create()
         {
-          
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserViewModel model)
         {
-         
             if (ModelState.IsValid)
             {
                 User user = new User { UserName = model.UserName, Position = model.Position, Email = model.Email };
@@ -58,7 +53,6 @@ namespace ITCompany.Controllers
 
         public async Task<IActionResult> Edit(string id)
         {
-           
             User user = await userManager.FindByIdAsync(id);
             if (user == null)
             {
