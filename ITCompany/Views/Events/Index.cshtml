@@ -12,36 +12,45 @@
         <br />
         <h3 class="section-title">Список событий</h3>
         <div class="card-body">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Начало события</th>
-                        <th>Конец</th>
-                        @*<th>Количество участников</th>*@
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (EventItem eventItem in Model)
-                    {
-                    <tr>
-                        <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.Name</di></td>
-                        <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.DateStart.ToShortDateString()</di></td>
-                        <td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventItem.DateEnd.ToShortDateString()</di></td>
-                        @*<td><di class="tp-caption small tp-fade fadeout tp-resizeme">@eventCount[eventItem.Id]</di></td>*@
-                        <td>
-                            <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
-                                <button type="submit" class="btn btn-red btn-danger">
-                                    <strong>Удалить</strong>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-        <a asp-action="Create"><strong>Создать событие</strong></a>
-    </div>
-  
-</div>
+           
+                        <div class="blog-posts">
+
+                          
+                                @foreach (EventItem eventItem in Model)
+                                {
+                            <div class="post box">
+
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <figure class="frame">
+                                            <a href="blog-post.html">
+                                                <div class="text-overlay">
+                                                    <div class="info"><span>Read More</span></div>
+                                                </div>
+                                                <img src="style/images/art/b1-1.jpg" alt="Page" />
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- /column -->
+                                    <div class="col-sm-7 post-content">
+                                        <div class="meta"><span class="date">@eventItem.DateStart.ToShortDateString() -  @eventItem.DateEnd.ToShortDateString()</span></div>
+                                        <h2 class="post-title"><a href="blog-post.html">@eventItem.Name</a></h2>
+                                        <p>Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                        <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
+                                            <button type="submit" class="btn btn-red btn-danger">
+                                                <strong>Удалить</strong>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <!-- /column -->
+                                </div>
+                            </div>
+                                        }
+                                  
+                     
+                        </div>
+                    </div>
+                    <a asp-action="Create"><strong>Создать событие</strong></a>
+                </div>
+
+            </div>
