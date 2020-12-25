@@ -14,8 +14,8 @@ namespace ITCompany.Controllers
         private readonly ILogger<HomeController> _logger;
         public static CurrentUModel Cr;
 
-        private CurrentUModel uCurrent;
-        private CurrentUModel Users;
+       
+        
         public HomeController(ILogger<HomeController> logger)
         {
             if (AccountController.Cr != null)
