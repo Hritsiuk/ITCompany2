@@ -1,4 +1,7 @@
-﻿<head>
+﻿@{ 
+    User user = await UserManager.FindByNameAsync(User.Identity.Name);
+}
+<head>
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 <div class="wrapper">
@@ -29,7 +32,7 @@
 
                             <div class="box-body text-center pb-50">
 
-                                <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">Roben Parkar</a></h4>
+                                <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">@User.Identity.Name</a></h4>
                                 <span><i class="fa fa-map-marker w-20"></i> Miami</span>
                             </div>
 
@@ -55,7 +58,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            <p>Email :<span class="text-gray pl-10">David@yahoo.com</span> </p>
+                                            <p>Email :<span class="text-gray pl-10">@user.Email</span> </p>
                                             <p>Phone :<span class="text-gray pl-10">+11 123 456 7890</span></p>
                                             <p>Address :<span class="text-gray pl-10">123, Lorem Ipsum, Florida, USA</span></p>
                                         </div>
