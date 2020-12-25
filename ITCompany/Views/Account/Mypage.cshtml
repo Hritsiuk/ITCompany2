@@ -2,68 +2,56 @@
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 <div class="wrapper">
-
-
-
-    <!--
-        content-wrapper
-        container-full
-        content
-
-
-        .box2 .box2-inverse bg-img
-        .box2-body text-center pb-50
-
-        .box2-body flex.box2 flex-justified text-center
-        .box2
-        .box2-body .box2-profile
-        text-gray pl-10
-
-        nav-tabs-custom .box2-profile
-
-        tab-content
-        form-horizontal form-element
-
-
-        -->
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left:10px;">
         <div class="container-full">
-            <!-- Content Header (Page header) -->
-            <!-- Main content -->
-            <section class="content">
+            <section class="content" style="margin-left:12px;">
 
                 <div class="row">
                     <div class="col-12 col-lg-5 col-xl-4">
 
-                        <div class=".boxM .boxM-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
-
-
-                            <div class=".boxM-body text-center pb-50">
-
-                                <h4 class="mt-5 mb-0">@ViewBag.name</h4>
-
+                        <div class="box box-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
+                            <div class="flexbox px-20 pt-20">
+                                <label class="toggler toggler-danger text-white">
+                                    <input type="checkbox">
+                                    <i class="fa fa-heart"></i>
+                                </label>
+                                <div class="dropdown">
+                                    <a data-toggle="dropdown" href="#"><i class="ti-more-alt rotate-90 text-white"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-picture-o"></i> Shots</a>
+                                        <a class="dropdown-item" href="#"><i class="ti-check"></i> Follow</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Block</a>
+                                    </div>
+                                </div>
                             </div>
 
-                            <ul class=".boxM-body flex.boxM flex-justified text-center" data-overlay="4">
+                            <div class="box-body text-center pb-50">
+
+                                <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">Roben Parkar</a></h4>
+                                <span><i class="fa fa-map-marker w-20"></i> Miami</span>
+                            </div>
+
+                            <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                                 <li>
-                                    <span class="opacity-60">Hour in this month</span><br>
-                                    <span class="font-size-20">@ViewBag.HoursThisMonth</span>
+                                    <span class="opacity-60">Followers</span><br>
+                                    <span class="font-size-20">8.6K</span>
                                 </li>
                                 <li>
-                                    <span class="opacity-60">hour for all time</span><br>
-                                    <span class="font-size-20">@ViewBag.HoursAllMonth</span>
+                                    <span class="opacity-60">Following</span><br>
+                                    <span class="font-size-20">8457</span>
                                 </li>
                                 <li>
-                                    <span class="opacity-60">Rating</span><br>
-                                    <span class="font-size-20">10</span>
+                                    <span class="opacity-60">Tweets</span><br>
+                                    <span class="font-size-20">2154</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- Profile Image -->
-                        <div class=".boxM">
-                            <div class=".boxM-body .boxM-profile">
+
+                        <div class="box">
+                            <div class="box-body box-profile">
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
@@ -73,105 +61,91 @@
                                         </div>
                                     </div>
 
+
                                 </div>
                             </div>
-                            <!-- /..box2-body -->
+
                         </div>
-
-                        <!-- /..box2 -->
-
-
-
-
-
                     </div>
                     <div class="col-12 col-lg-7 col-xl-8">
 
-                        <div class="nav-tabs-custom .box2-profile">
+                        <div class="nav-tabs-custom box-profile">
                             <ul class="nav nav-tabs">
 
-                                <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                                <li><a class="active" href="#settings" data-toggle="tab">Settings</a></li>
                             </ul>
 
-                            <div class="tab-content">
+                            <div class=" tab-content">
 
-                                <div class="active tab-pane" id="usertimeline">
+                                <div class=" active tab-pane" id="settings">
 
-                                    <!-- /.tab-pane -->
+                                    <div class="box p-15">
+                                        <form class="form-horizontal form-element col-12">
+                                            <div class="form-group row">
+                                                <label for="inputName" class="col-sm-2 control-label">Name</label>
 
-                                    <div class=" active tab-pane" id="settings">
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="inputName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
-                                        <div class=".box2 p-15">
-                                            <form class="form-horizontal form-element col-12">
-                                                <div class="form-group row">
-                                                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="inputEmail" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
 
-                                                    <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="inputName" placeholder="">
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control" id="inputPhone" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
+
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" id="inputExperience" placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
+
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputSkills" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="ml-auto col-sm-10">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" id="basic_checkbox_1" checked="">
+                                                        <label for="basic_checkbox_1"> I agree to the</label>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                                                    <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="inputEmail" placeholder="">
-                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="ml-auto col-sm-10">
+                                                    <button type="submit" class="btn btn-rounded btn-success">Submit</button>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
-
-                                                    <div class="col-sm-10">
-                                                        <input type="tel" class="form-control" id="inputPhone" placeholder="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                                                    <div class="col-sm-10">
-                                                        <textarea class="form-control" id="inputExperience" placeholder=""></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputSkills" placeholder="">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="ml-auto col-sm-10">
-                                                        <div class="check.box">
-                                                            <input type="checkbox" id="basic_check.boxM_1" checked="">
-                                                            <label for="basic_check.boxM_1"> I agree to the</label>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="ml-auto col-sm-10">
-                                                        <button type="submit" class="btn btn-rounded btn-success">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <!-- /.tab-pane -->
                                 </div>
-                                <!-- /.tab-content -->
+
                             </div>
-                            <!-- /.nav-tabs-custom -->
+
                         </div>
+
                     </div>
-                    <!-- /.row -->
                 </div>
+
+
             </section>
-            <!-- /.content -->
+
         </div>
     </div>
-    <!-- /.content-wrapper -->
-    <!-- Control Sidebar -->
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+
     <div class="control-sidebar-bg"></div>
 </div>
- 
