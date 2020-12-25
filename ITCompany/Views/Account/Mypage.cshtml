@@ -1,4 +1,6 @@
-﻿
+﻿<head>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
 <div class="wrapper">
 
 
@@ -9,15 +11,15 @@
         content
 
 
-        box box-inverse bg-img
-        box-body text-center pb-50
+        .box2 .box2-inverse bg-img
+        .box2-body text-center pb-50
 
-        box-body flexbox flex-justified text-center
-        box
-        box-body box-profile
+        .box2-body flex.box2 flex-justified text-center
+        .box2
+        .box2-body .box2-profile
         text-gray pl-10
 
-        nav-tabs-custom box-profile
+        nav-tabs-custom .box2-profile
 
         tab-content
         form-horizontal form-element
@@ -34,16 +36,16 @@
                 <div class="row">
                     <div class="col-12 col-lg-5 col-xl-4">
 
-                        <div class="box box-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
+                        <div class=".boxM .boxM-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
 
 
-                            <div class="box-body text-center pb-50">
+                            <div class=".boxM-body text-center pb-50">
 
                                 <h4 class="mt-5 mb-0">@ViewBag.name</h4>
 
                             </div>
 
-                            <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
+                            <ul class=".boxM-body flex.boxM flex-justified text-center" data-overlay="4">
                                 <li>
                                     <span class="opacity-60">Hour in this month</span><br>
                                     <span class="font-size-20">28</span>
@@ -60,8 +62,8 @@
                         </div>
 
                         <!-- Profile Image -->
-                        <div class="box">
-                            <div class="box-body box-profile">
+                        <div class=".boxM">
+                            <div class=".boxM-body .boxM-profile">
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
@@ -73,10 +75,10 @@
 
                                 </div>
                             </div>
-                            <!-- /.box-body -->
+                            <!-- /..box2-body -->
                         </div>
 
-                        <!-- /.box -->
+                        <!-- /..box2 -->
 
 
 
@@ -85,7 +87,7 @@
                     </div>
                     <div class="col-12 col-lg-7 col-xl-8">
 
-                        <div class="nav-tabs-custom box-profile">
+                        <div class="nav-tabs-custom .box2-profile">
                             <ul class="nav nav-tabs">
 
                                 <li><a href="#settings" data-toggle="tab">Settings</a></li>
@@ -99,7 +101,7 @@
 
                                     <div class=" active tab-pane" id="settings">
 
-                                        <div class="box p-15">
+                                        <div class=".box2 p-15">
                                             <form class="form-horizontal form-element col-12">
                                                 <div class="form-group row">
                                                     <label for="inputName" class="col-sm-2 control-label">Name</label>
@@ -138,9 +140,9 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="ml-auto col-sm-10">
-                                                        <div class="checkbox">
-                                                            <input type="checkbox" id="basic_checkbox_1" checked="">
-                                                            <label for="basic_checkbox_1"> I agree to the</label>
+                                                        <div class="check.box">
+                                                            <input type="checkbox" id="basic_check.boxM_1" checked="">
+                                                            <label for="basic_check.boxM_1"> I agree to the</label>
                                                             &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
                                                         </div>
                                                     </div>
