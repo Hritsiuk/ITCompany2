@@ -1,4 +1,6 @@
-﻿@{ 
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+@{
     User user = await UserManager.FindByNameAsync(User.Identity.Name);
 }
 <head>
@@ -14,21 +16,21 @@
 
                         <div class="box box-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
                             @*<div class="flexbox px-20 pt-20">
-                                <label class="toggler toggler-danger text-white">
-                                    <input type="checkbox">
-                                    <i class="fa fa-heart"></i>
-                                </label>
-                                <div class="dropdown">
-                                    <a data-toggle="dropdown" href="#"><i class="ti-more-alt rotate-90 text-white"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-picture-o"></i> Shots</a>
-                                        <a class="dropdown-item" href="#"><i class="ti-check"></i> Follow</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Block</a>
+                                    <label class="toggler toggler-danger text-white">
+                                        <input type="checkbox">
+                                        <i class="fa fa-heart"></i>
+                                    </label>
+                                    <div class="dropdown">
+                                        <a data-toggle="dropdown" href="#"><i class="ti-more-alt rotate-90 text-white"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-picture-o"></i> Shots</a>
+                                            <a class="dropdown-item" href="#"><i class="ti-check"></i> Follow</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Block</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>*@
+                                </div>*@
 
                             <div class="box-body text-center pb-50">
 
@@ -46,9 +48,9 @@
                                     <span class="font-size-20">@ViewBag.HoursAllMonth</span>
                                 </li>
                                 @*<li>
-                                    <span class="opacity-60">Tweets</span><br>
-                                    <span class="font-size-20">2154</span>
-                                </li>*@
+                                        <span class="opacity-60">Tweets</span><br>
+                                        <span class="font-size-20">2154</span>
+                                    </li>*@
                             </ul>
                         </div>
 
