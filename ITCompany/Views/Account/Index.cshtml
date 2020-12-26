@@ -5,89 +5,77 @@
     ViewData["Title"] = "Мой профиль";
 }
 @{
-
     User user = await UserManager.FindByNameAsync(User.Identity.Name);
-
-
     if (UserManager.IsInRoleAsync(user, "admin").Result)
     { 
-    <div class="container">
-        
+        <div class="container">
             <div class="blog-posts">
-
                 <div class="isotope row">
                     <div class="col-md-7 col-sm-12 col-md-push-3 post-grid">
-
                         <div class="box">
-
-
-
-                           
-
-                                <div class="row">
-                                    <h3>Управление сотрудниками</h3>
-                                </div>
-                                <div class="row">
-
-                                    <a asp-area="" asp-controller="Users" asp-action="Index">
-                                        <button type="button" class="btn border-black">
-                                            <strong>User Manager</strong>
-                                        </button>
-                                    </a>
-
-                                </div>
-                                <div class="row">
-                                    <h3>Управление ролями</h3>
-                                </div>
-                                <div class="row">
-
-                                    <a asp-area="" asp-controller="Roles" asp-action="Index">
-                                        <button type="button" class="btn border-black">
-                                            <strong>Roles Manager</strong>
-                                        </button>
-                                    </a>
-                                </div>
-                                <div class="row">
-                                    <h3>Управление событиями</h3>
-                                </div>
-                                <div class="row">
-
-                                    <a asp-area="" asp-controller="Events" asp-action="Index">
-                                        <button type="button" class="btn border-black">
-                                            <strong>Events Manager</strong>
-                                        </button>
-                                    </a>
-                                </div>
-
-                        
-
+                            <div class="row">
+                                <h3>Управление сотрудниками</h3>
+                            </div>
+                            <div class="row">
+                                <a asp-area="" asp-controller="Users" asp-action="Index">
+                                    <button type="button" class="btn border-black">
+                                        <strong>User Manager</strong>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <h3>Управление ролями</h3>
+                            </div>
+                            <div class="row">
+                                <a asp-area="" asp-controller="Roles" asp-action="Index">
+                                    <button type="button" class="btn border-black">
+                                        <strong>Roles Manager</strong>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <h3>Управление событиями</h3>
+                            </div>
+                            <div class="row">
+                                <a asp-area="" asp-controller="Events" asp-action="Index">
+                                <button asp-area="" asp-controller="Events" asp-action="Index" type="button" class="btn border-black">
+                                    <strong>Events Manager</strong>
+                                </button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-            
-    </div>
-
+        </div>
     }
     else if (UserManager.IsInRoleAsync(user, "moderator").Result)
     {
         <div class="blog-posts" style="margin-left:20px;">
-
             <div class="isotope row">
-
                 <section id="contact">
                     <div class="box">
-
                         <section class="box">
                             <div class="row">
                                 <h3>Управление сотрудниками</h3>
                             </div>
-                            <div class="row"><a asp-area="" asp-controller="Users" asp-action="Index">User Manager</a></div>
+                            <div class="row">
+                                <a asp-area="" asp-controller="Users" asp-action="Index">
+                                    <button type="button" class="btn border-black">
+                                        <strong>User Manager</strong>
+                                    </button>
+                                </a>
+                            </div>
                             <div class="row">
                                 <h3>Управление событиями</h3>
                             </div>
-                            <div class="row"><a asp-area="" asp-controller="Events" asp-action="Index">Events Manager</a></div>
+                            <div class="row">
+                                <a asp-area="" asp-controller="Events" asp-action="Index">
+                                    <button asp-area="" asp-controller="Events" asp-action="Index" type="button" class="btn border-black">
+                                        <strong>Events Manager</strong>
+                                    </button>
+                                </a>
+                            </div>
                         </section>
                     </div>
                 </section>
@@ -97,9 +85,7 @@
     else
     {
         <div class="blog-posts" style="margin-left:20px;">
-
             <div class="isotope row">
-
                 <section id="contact">
                     <div class="box">
                         <section class="box">
@@ -111,6 +97,4 @@
             </div>
         </div>
     }
-
 }
-

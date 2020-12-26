@@ -3,7 +3,11 @@
     ViewBag.Title = "Добавление роли";
 }
 <div class="container py-5">
-    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+    <a asp-area="" asp-controller="Account" asp-action="Index">
+        <button type="button" class="btn border-black">
+            <strong>Вернуться на панель администратора</strong>
+        </button>
+    </a>
     <div class="card mb-4" id="forms">
         <div class="card-body">
             <form asp-area="Admin" asp-controller="Roles" asp-action="Create" method="post">

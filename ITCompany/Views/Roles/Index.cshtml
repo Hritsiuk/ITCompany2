@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
 
-<div class="container py-5">
-   
-    <div class="card mb-4 box" id="tables">
-        <a asp-area="" asp-controller="Account" asp-action="Index">Вернуться на панель администратора</a>
+<div class="container py-5">    <div class="card mb-4 box" id="tables">
+        <a asp-area="" asp-controller="Account" asp-action="Index">
+            <button type="button" class="btn border-black">
+                <strong>Вернуться на панель администратора</strong>
+            </button>
+        </a>
         <h3 class="section-title">Список ролей</h3>
         <div class="card-body">
             <table class="table table-hover">
@@ -23,8 +25,16 @@
                     }
                 </tbody>
             </table>
-            <a asp-area="Admin" asp-controller="Roles" asp-action="Create">Добавить роль</a>
-            <a asp-area="Admin" asp-controller="Roles" asp-action="UserList">Список пользователей</a>
+            <a asp-area="Admin" asp-controller="Roles" asp-action="Create">
+                <button type="button" class="btn border-black">
+                    <strong>Добавить роль</strong>
+                </button>
+            </a>
+            <a asp-area="Admin" asp-controller="Roles" asp-action="UserList">
+                <button type="button" class="btn border-black">
+                    <strong>Список пользователей</strong>
+                </button>
+            </a>
         </div>
     </div>
 </div>
