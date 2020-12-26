@@ -48,9 +48,7 @@
                         {
                             <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
                             <li><a asp-area="" asp-controller="Account" asp-action="Mypage">@User.Identity.Name</a></li>
-                            if (UserManager.IsInRoleAsync(user, "admin").Result || UserManager.IsInRoleAsync(user, "moderator").Result){
-                                <li><a asp-area="" asp-controller="Account" asp-action="Index">Manage</a></li>
-                            }
+                            <li><a asp-area="" asp-controller="Account" asp-action="Index">Manage</a></li>
                         }
                     }
                 </ul>

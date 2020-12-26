@@ -1,8 +1,19 @@
-﻿@model IQueryable<EventItem>
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+@model IQueryable<EventItem>
 @{
     string strTitle = "Event Manager";
     ViewBag.Title = strTitle;
     Dictionary<Guid, int> eventCount = ViewBag.EventCount;
+    User user = null;
+    if (User.Identity.Name != null)
+    {
+        user = await UserManager.FindByNameAsync(User.Identity.Name);
+    }
+    bool role = false;
+    role = UserManager.IsInRoleAsync(user, "moderator").Result;
+    bool role2 = false;
+    role2 = UserManager.IsInRoleAsync(user, "admin").Result;
 }
 
 <div class="container py-5">
@@ -28,22 +39,28 @@
                                 <div class="meta"><span class="date">@eventItem.DateStart.ToShortDateString() -  @eventItem.DateEnd.ToShortDateString()</span></div>
                                 <h2 class="post-title"><a href="blog-post.html">@eventItem.Name</a></h2>
                                 <p>Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
-                                <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
-                                    <button type="submit" class="btn btn-red btn-danger">
-                                        <strong>Удалить</strong>
-                                    </button>
-                                </form>
+                                @if (role || role2)
+                                {
+                                    <form asp-action="Delete" asp-route-id="@eventItem.Id" method="post">
+                                        <button type="submit" class="btn btn-red btn-danger">
+                                            <strong>Удалить</strong>
+                                        </button>
+                                    </form>
+                                }
                             </div>
                         </div>
                     }
                 </div>
                 <!-- /column -->
             </div>
-            <a asp-controller="Events" asp-action="Create">
-                <button type="button" class="btn border-black">
-                    <strong>Создать событие</strong>
-                </button>
-            </a>
+            @if (role || role2)
+            {
+                <a asp-controller="Events" asp-action="Create">
+                    <button type="button" class="btn border-black">
+                        <strong>Создать событие</strong>
+                    </button>
+                </a>
+            }
         </div>
     </div>
 </div>

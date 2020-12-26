@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ITCompany.Controllers
 {
-    [Authorize(Roles = "admin,moderator")]
     public class EventsController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -23,7 +22,7 @@ namespace ITCompany.Controllers
             userManager = _userManager;
             dataManager = manager;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
             /*var data = dataManager.EventsUsers.GetEventsUsers();
@@ -55,6 +54,7 @@ namespace ITCompany.Controllers
             return View(dataManager.EventItems.GetEventItems());
         }
 
+        [Authorize(Roles = "admin,moderator")]
         public IActionResult Create()
         {
             var users = userManager.Users.ToList();
@@ -70,6 +70,7 @@ namespace ITCompany.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "admin,moderator")]
         [HttpPost]
         public async Task<IActionResult> Create(CreateEventViewModel model, List<string> names)
         {
@@ -90,6 +91,7 @@ namespace ITCompany.Controllers
             return NotFound();
         }
 
+        [Authorize(Roles = "admin,moderator")]
         [HttpPost]
         public IActionResult Delete(string id)
         {
