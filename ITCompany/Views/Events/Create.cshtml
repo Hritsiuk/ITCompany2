@@ -1,11 +1,15 @@
 ﻿@model CreateEventViewModel
 
 <div class="container py-5">
-    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+    <a asp-area="" asp-controller="Account" asp-action="Index">
+        <button type="button" class="btn border-black">
+            <strong>Вернуться на панель администратора</strong>
+        </button>
+    </a>
     <div class="card mb-4" id="forms">
-        </br>
+        <br />
         <h3 class="section-title">Добавление события</h3>
-        </br>
+        <br />
         <div class="card-body">
             <form asp-area="" asp-controller="Events" asp-action="Create" method="post">
                 <fieldset>
@@ -32,7 +36,6 @@
                             {
                                 <label class="form-check-label" for="check-@i">@name </label><br />
                                 <input class="form-check-input" id="check-@i" type="checkbox" name="names" value="@name" />
-
                                 i++;
                             }
                         </div>

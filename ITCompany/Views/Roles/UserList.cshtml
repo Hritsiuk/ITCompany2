@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 
 <div class="container py-5">
-    <a asp-area="" asp-controller="Account" asp-action="Manage">Вернуться на панель администратора</a>
+    <a asp-area="" asp-controller="Account" asp-action="Index">
+        <button type="button" class="btn border-black">
+            <strong>Вернуться на панель администратора</strong>
+        </button>
+    </a>
     <div class="card mb-4" id="tables">
         <div class="card-header">Список пользователей</div>
         <div class="card-body">

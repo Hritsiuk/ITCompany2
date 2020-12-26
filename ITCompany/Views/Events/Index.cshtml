@@ -6,9 +6,7 @@
 }
 
 <div class="container py-5">
-
     <div class="card mb-4 box" id="tables">
-        
         <a asp-area="" asp-controller="Account" asp-action="Index">
             <button type="button" class="btn border-black">
                 <strong>Вернуться на панель администратора</strong>
@@ -17,15 +15,10 @@
         <br />
         <h3 class="section-title">Список событий</h3>
         <div class="card-body">
-
             <div class="blog-posts">
-
                 <div class="isotope row">
-
-
                     <!-- /.post -->
                     <!-- /.post -->
-
                     @foreach (EventItem eventItem in Model)
                     {
                         <div class="col-md-6 col-sm-12 post-grid">
@@ -43,7 +36,6 @@
                             </div>
                         </div>
                     }
-
                 </div>
                 <!-- /column -->
             </div>
@@ -54,8 +46,4 @@
             </a>
         </div>
     </div>
-
 </div>
-
-
-

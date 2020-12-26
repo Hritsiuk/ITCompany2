@@ -4,9 +4,12 @@
 }
 
 <div class="container py-5">
-   
     <div class="card mb-4 box" id="tables">
-        <a asp-area="" asp-controller="Account" asp-action="Index">Вернуться на панель администратора</a>
+        <a asp-area="" asp-controller="Account" asp-action="Index">
+            <button type="button" class="btn border-black">
+                <strong>Вернуться на панель администратора</strong>
+            </button>
+        </a>
         <br />
         <h3 class="section-title">Список сотрудников</h3>
         <div class="card-body">
@@ -37,7 +40,10 @@
                 </tbody>
             </table>
         </div>
-        <a asp-action="Create"><strong>Добавить сотрудника</strong></a>
+        <a asp-action="Create">
+            <button type="button" class="btn border-black">
+                <strong>Добавить сотрудника</strong>
+            </button>
+        </a>
     </div>
-   
 </div>
