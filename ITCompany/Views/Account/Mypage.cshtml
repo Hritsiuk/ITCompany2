@@ -15,7 +15,7 @@
                         <div class="box box-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
                             <div class="box-body text-center pb-50">
                                 <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">@User.Identity.Name</a></h4>
-                                <span><i class="fa fa-map-marker w-20"></i>@ViewBag.Position</span>
+                                <span><i class="fa fa-map-marker w-20"></i>@user.Position</span>
                             </div>
                             <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                                 <li>
@@ -101,125 +101,69 @@
                                 </div>
                                 <div class="tab-pane" id="activity">
                                     <div class="box p-15">
-                                        <!-- Post -->
-                                        <div class="post">
-                                            <div class="user-block">
-                                                <img class="img-bordered-sm rounded-circle" src="../images/user1-128x128.jpg" alt="user image">
-                                                <span class="username">
-                                                    <a href="#">Brayden</a>
-                                                    <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                                                </span>
-                                                <span class="description">5 minutes ago</span>
-                                            </div>
-                                            <!-- /.user-block -->
-                                            <div class="activitytimeline">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-                                                </p>
-                                                <ul class="list-inline">
-                                                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-                                                    <li>
-                                                        <a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                                                    </li>
-                                                    <li class="pull-right">
-                                                        <a href="#" class="link-black text-sm">
-                                                            <i class="fa fa-comments-o margin-r-5"></i> Comments
-                                                            (5)
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <form class="form-element">
-                                                    <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- /.post -->
-                                        <!-- Post -->
-                                        <div class="post">
-                                            <div class="user-block">
-                                                <img class="img-bordered-sm rounded-circle" src="../images/user6-128x128.jpg" alt="user image">
-                                                <span class="username">
-                                                    <a href="#">Evan</a>
-                                                    <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                                                </span>
-                                                <span class="description">5 minutes ago</span>
-                                            </div>
-                                            <!-- /.user-block -->
-                                            <div class="activitytimeline">
-                                                <div class="row mb-20">
-                                                    <div class="col-sm-6">
-                                                        <img class="img-fluid" src="../images/photo1.png" alt="Photo">
-                                                    </div>
-                                                    <!-- /.col -->
-                                                    <div class="col-sm-6">
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <img class="img-fluid" src="../images/photo2.png" alt="Photo">
-                                                                <br><br>
-                                                                <img class="img-fluid" src="../images/photo3.jpg" alt="Photo">
-                                                            </div>
-                                                            <!-- /.col -->
-                                                            <div class="col-sm-6">
-                                                                <img class="img-fluid" src="../images/photo4.jpg" alt="Photo">
-                                                                <br><br>
-                                                                <img class="img-fluid" src="../images/photo1.png" alt="Photo">
-                                                            </div>
-                                                            <!-- /.col -->
+                                        <div id="navpills-1" class="tab-pane active">
+                                            <!-- Categroy 1 -->
+                                            <div class=" tab-pane animation-fade active" id="category-1" role="tabpanel">
+                                                <div class="panel-group panel-group-simple panel-group-continuous" id="accordion2"
+                                                     aria-multiselectable="true" role="tablist">
+
+                                                    <div class="panel">
+                                                        <div class="panel-heading" id="question-2" role="tab">
+                                                            <a class="panel-title" aria-controls="answer-2" aria-expanded="false" data-toggle="collapse"
+                                                               href="#answer-2" data-parent="#accordion2">
+                                                                Payment
+                                                            </a>
                                                         </div>
-                                                        <!-- /.row -->
+                                                        <div class="panel-collapse collapse" id="answer-2" aria-labelledby="question-2"
+                                                             role="tabpanel">
+                                                            <div class="panel-body">
+                                                                <h2>Salary in this month:</h2>
+                                                                <br />
+                                                                <br />
+                                                                <h1><b>3000$</b></h1>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <!-- /.col -->
+                                                    <!-- End Question 2 -->
+                                                    <!-- Question 3 -->
+                                                    <div class="panel">
+                                                        <div class="panel-heading" id="question-3" role="tab">
+                                                            <a class="panel-title" aria-controls="answer-3" aria-expanded="false" data-toggle="collapse"
+                                                               href="#answer-3" data-parent="#accordion2">
+                                                                Morbi quis dui at justo posuere aliquam?
+                                                            </a>
+                                                        </div>
+                                                        <div class="panel-collapse collapse" id="answer-3" aria-labelledby="question-3"
+                                                             role="tabpanel">
+                                                            <div class="panel-body">
+                                                                I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Question 3 -->
+                                                    <!-- Question 4 -->
+                                                    <div class="panel">
+                                                        <div class="panel-heading" id="question-4" role="tab">
+                                                            <a class="panel-title" aria-controls="answer-4" aria-expanded="false" data-toggle="collapse"
+                                                               href="#answer-4" data-parent="#accordion2">
+                                                                Vivamus dictum turpis at nisi mattis congue?
+                                                            </a>
+                                                        </div>
+                                                        <div class="panel-collapse collapse" id="answer-4" aria-labelledby="question-4"
+                                                             role="tabpanel">
+                                                            <div class="panel-body">
+                                                                I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Question 4 -->
                                                 </div>
-                                                <!-- /.row -->
-                                                <ul class="list-inline">
-                                                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-                                                    <li>
-                                                        <a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                                                    </li>
-                                                    <li class="pull-right">
-                                                        <a href="#" class="link-black text-sm">
-                                                            <i class="fa fa-comments-o margin-r-5"></i> Comments
-                                                            (5)
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <form class="form-element">
-                                                    <input class="form-control input-sm" type="text" placeholder="Type a comment">
-                                                </form>
                                             </div>
+                                            <!-- End Categroy 1 -->
                                         </div>
-                                        <!-- /.post -->
-                                        <!-- Post -->
-                                        <div class="post clearfix">
-                                            <div class="user-block">
-                                                <img class="img-bordered-sm rounded-circle" src="../images/user7-128x128.jpg" alt="user image">
-                                                <span class="username">
-                                                    <a href="#">Nicholas</a>
-                                                    <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                                                </span>
-                                                <span class="description">5 minutes ago</span>
-                                            </div>
-                                            <!-- /.user-block -->
-                                            <div class="activitytimeline">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-                                                </p>
-                                                <form class="form-horizontal form-element">
-                                                    <div class="form-group row no-gutters">
-                                                        <div class="col-sm-9">
-                                                            <input class="form-control input-sm" placeholder="Response">
-                                                        </div>
-                                                        <div class="col-sm-3">
-                                                            <button type="submit" class="btn btn-rounded btn-danger pull-right btn-block btn-sm">Send</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- /.post -->
                                     </div>
                                 </div>
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>

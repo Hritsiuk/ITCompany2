@@ -2,28 +2,39 @@
 @{
     ViewData["Title"] = "Log in";
 }
-<div class="row">
-    <div class="col-md-4">
-        <section class="box">
-            <form id="account" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
-                <h4>Вход в личный кабинет</h4>
-                <hr />
-                <div asp-validation-summary="All"></div>
-                <div class="form-group">
-                    <label asp-for="UserName"></label>
-                    <input asp-for="UserName" class="form-control" id="exampleInputEmail" type="text" placeholder="Введите логин">
-                    <span asp-validation-for="UserName" class="text-danger"></span>
+<div class="container">
+    <div class="row">
+        <div class="blog-posts ">
+            <div class="isotope row">
+                <div class="col-md-6 col-md-push-3 col-sm-12">
+
+                    <div class="post box">
+                        
+                            <div class="box">
+                                <form id="account" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+                                    <h4>Вход в личный кабинет</h4>
+                                    <hr />
+                                    <div asp-validation-summary="All"></div>
+                                    <div class="form-group">
+                                        <label asp-for="UserName"></label>
+                                        <input asp-for="UserName" class="form-control" id="exampleInputEmail" type="text" placeholder="Введите логин">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Password"></label>
+                                        <input asp-for="Password" class="form-control" id="exampleInputPassword" type="password" placeholder="Введите пароль">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <button class="btn btn-submit btn-default bm5" type="submit">Войти</button>
+                                </form>
+                            </div>
+                        
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" id="exampleInputPassword" type="password" placeholder="Введите пароль">
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <button class="btn btn-submit bm5" type="submit">Войти</button>
-            </form>
-        </section>
+            </div>
     </div>
-</div>
-<script>
-                $.backstretch(["images/art/bg125.jpg"]);
-</script>
+        </div>
+    </div>
+        <script>
+            $.backstretch(["images/art/bg125.jpg"]);
+        </script>
