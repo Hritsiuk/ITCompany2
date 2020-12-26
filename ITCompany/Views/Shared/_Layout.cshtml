@@ -1,8 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<User> UserManager
 @{
-    User user = await UserManager.FindByNameAsync(User.Identity.Name);
-
+    User user = null;
+    if (User.Identity.Name != null)
+    {
+        user = await UserManager.FindByNameAsync(User.Identity.Name);
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
