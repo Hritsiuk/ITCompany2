@@ -112,7 +112,7 @@ namespace ITCompany.Controllers
         }
 
         [Authorize]
-        public IActionResult Manage()
+        public IActionResult Index()
         {
             return View();
         }
